@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFと会話するサイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .chat-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .gif img {
+            width: 100px;
+            height: 100px;
+        }
+        .response {
+            font-size: 24px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: left;
+        }
+        input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box">
+            <div class="gif" id="gif"><img src="your-gif.gif" alt="GIF"></div>
+            <div class="response" id="response">...</div>
+        </div>
+        <input type="text" id="userInput" placeholder="メッセージを入力">
+        <button onclick="sendMessage()">送信</button>
+    </div>
+
+    <script>
+        const responses = {
+            "💃": "バカにしてんのかしね🖕😜🖕",
+            "でふぃーはイケメン": "あたりまえ",
+            "ねえねえ": "何？",
+            "ダンスして": "むりしね🖕😜🖕"
+        };
+        
+        function sendMessage() {
+            const input = document.getElementById("userInput").value;
+            const responseText = responses[input] || "？";
+            document.getElementById("response").textContent = responseText;
+        }
+    </script>
+</body>
+</html>
